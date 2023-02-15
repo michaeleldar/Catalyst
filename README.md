@@ -3,8 +3,7 @@
 # Catalyst 
 An amazing and elegant ElectronJS web browser.
 
-![image](https://user-images.githubusercontent.com/92550746/194955977-c37b21f6-5ec3-4d1a-939f-c27b23cd9a9a.png)
-
+![image](https://user-images.githubusercontent.com/92550746/213339204-d0ab12ec-cbb8-46f2-bea6-b9df97202b56.png)
 ---
 
 Catalyst is a hobby project entirely managed and written by the community. It is an Electron/Chromium based web browser that really doesn't have a purpose, the contributors are below
@@ -20,6 +19,9 @@ Catalyst is a hobby project entirely managed and written by the community. It is
 
 3. Scroll down and click on the file for your specific platform (Windows = `.exe`, Debian Linux distros = `.deb`, etc.)
 4. Open the downloaded file then let Catalyst install!
+
+## Other Systems
+[ARM Systems (Raspberry Pi) (DEB/RPM)](https://github.com/michaeleldar/Catalyst-Rpi/releases)
 
 ## Contributors
 
@@ -71,9 +73,9 @@ Catalyst is a hobby project entirely managed and written by the community. It is
 <tr>
     <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
         <a href=https://github.com/CocoTheMii>
-            <img src=https://avatars.githubusercontent.com/u/44563370?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=CocoTheMii/>
+            <img src=https://avatars.githubusercontent.com/u/44563370?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Coco/>
             <br />
-            <sub style="font-size:14px"><b>CocoTheMii</b></sub>
+            <sub style="font-size:14px"><b>Coco</b></sub>
         </a>
     </td>
     <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">

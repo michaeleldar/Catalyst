@@ -9,7 +9,7 @@ const generateHashkey = () => {
         Math.random().toString(36).substring(2, 15) +
         Math.random().toString(36).substring(2, 15)
     );
-}
+};
 
 const removeChildren = (parent) => {
     while (parent.lastChild) {
@@ -19,42 +19,27 @@ const removeChildren = (parent) => {
 
 
 function downloadCurrentPage() {
-    currentView = document.querySelector('.current')
+    currentView = document.querySelector('.current');
     let contents = currentView.src;
     downloadURI(contents, contents);
 }
 
 function closeWelcome() {
     // add hidden class to welcomepage id
-    document.getElementById("welcomepage").classList.add("hidden");
+    document.getElementById('welcomepage').classList.add('hidden');
 }
 
 // if value new isn't set, remove class hidden from welcomepage id then set value new to false
 function openWelcome() {
-    if (window.localStorage.getItem("new") === null) {
+    if (window.localStorage.getItem('new') === null) {
         // remove class hidden from welcomepage id and add flex to welcomepage id
-        document.getElementById("welcomepage").classList.remove("hidden");
-        window.localStorage.setItem("new", false);
-    }
-}
-
-function deleteAllCookies() {
-    var cookies = document.cookie.split(";");
-    try {
-        for (var i = 0; i < cookies.length; i++) {
-            var cookie = cookies[i];
-            var eqPos = cookie.indexOf("=");
-            var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-            document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
-        }
-    } 
-    catch(err) {
-        alert(err.message)
+        document.getElementById('welcomepage').classList.remove('hidden');
+        window.localStorage.setItem('new', false);
     }
 }
 
 function downloadURI(uri, name) {
-    var link = document.createElement("a");
+    var link = document.createElement('a');
     link.download = name;
     link.href = uri;
     document.body.appendChild(link);
@@ -63,36 +48,54 @@ function downloadURI(uri, name) {
     delete link;
 }
 
-const getPackageJSON = async() => {
-    return await (await fetch("../package.json")).json();
+const getPackageJSON = async () => {
+    return await (await fetch('../package.json')).json();
 };
 
-function openFeedback() {
-    createTab('https://github.com/JaydenDev/Catalyst/issues/new')
-}
-
-function openGithub() {
-    createTab('https://github.com/JaydenDev/Catalyst')
-}
-
 function openDocs() {
-    createTab('https://getcatalyst.eu.org/docs')
+    createTab('https://getcatalyst.eu.org/docs');
 }
 
 function clearData() {
-    if (!confirm("Are you sure you want to delete all preferences and bookmarks from Catalyst? \n   You will stay logged into all the websites you use!")) return;
+    if (!confirm('Are you sure you want to delete all preferences and bookmarks from Catalyst? \n   You will stay logged into all the websites you use!')) return;
     window.localStorage.clear();
-    localStorage.setItem('ctlyststrppg', './home.html')
+    localStorage.setItem('ctlyststrppg', './home.html');
     window.close();
 }
 
 function inspectTab() {
-    document.querySelector(".current").inspectElement(0, 0);
+    document.querySelector('.current').inspectElement(0, 0);
 }
 
 function invertTab() {
-    view.insertCSS('html { filter: invert(100%); }')
-    view.insertCSS("img { filter: invert(100%) !important} ")
+    view.insertCSS('html { filter: invert(100%); }');
+    view.insertCSS('img { filter: invert(100%) !important} ');
 }
 
-openWelcome()
+function openChangeLog() {
+    ver = document.querySelector('#ver').innerText;
+    createTab(`https://github.com/jdev082/Catalyst/releases/tag/${ver}`);
+}
+
+openWelcome();
+
+function toggleBookmarks() {
+    document.querySelector('#bookmarks').classList.toggle('hidden');
+    document.querySelector('.current').classList.toggle('hidden');
+}
+
+function bareURL(url) {
+    for (var i = 0; i < protocols.length; i++) {
+        url = url.replace(protocols[i], '')
+    }
+    url = url.replace('://', '')
+    url = url.replace('www.', '')
+    url = url.replace('/', '')
+    return url;
+}
+
+function checkSafety() {
+    src = document.querySelector('.current').src
+    src = bareURL(src)
+    window.open('https://www.urlvoid.com/scan/' + src)
+}

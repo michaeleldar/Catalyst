@@ -1,17 +1,26 @@
-// dependencies
-strt = document.querySelector('#pref-strt')
-reload = document.querySelector('#reload')
-backward = document.querySelector('#back')
-forward = document.querySelector('#forward')
-
-document.getElementById("more-btn").addEventListener("click", () => {
-    document.getElementById("more-menu").classList.toggle("hidden");
-    document.querySelector('#more-btn').classList.toggle("bg-gray-400")
+bkmrk.addEventListener('click', () => {
+    toggleBookmarks();
+    console.log('t');
 });
 
-strt.addEventListener('change', () => {
-    localStorage.setItem('ctlyststrppg', strt.value)
-}   
+document.getElementById('more-btn').addEventListener('click', () => {
+    document.getElementById('more-menu').classList.toggle('hidden');
+    document.querySelector('#more-btn').classList.toggle('bg-gray-400');
+});
+
+strt.addEventListener('keypress', (e) => {
+    if (e.keyCode == 13) {
+        if (strt.value.includes('\'') || strt.value.includes('"')) {
+            alert('Invalid characters. Must not contain quotes!');
+            return;
+        }
+        if (strt.value == 'default') {
+            localStorage.setItem('ctlyststrppg', './home.html');
+            return;
+        }
+        localStorage.setItem('ctlyststrppg', strt.value);
+        alert('Browser must be restarted to complete change.');
+    }}
 );
 strt.value = localStorage.getItem('ctlyststrppg');
 
